@@ -4,10 +4,10 @@ import { Link } from "react-router-dom";
 const todos = <Link to="/" >TO DOs</Link>
 const completedTasks = <Link to="/completedTasks" >completed Tasks</Link>
 const calendar = <Link to="/calendar" >calendar</Link>
-const contactDev = <a class="btn" href='https://mahfuzswaron.netlify.app/' target="_blank" rel="noreferrer">Contact Dev</a>
+const contactDev = <a class="btn btn-primary btn-outline" href='https://mahfuzswaron.netlify.app/' target="_blank" rel="noreferrer">Contact Dev</a>
 const Navbar = () => {
     return (
-        <nav class="navbar bg-base-100">
+        <nav class="navbar bg-base-100 px-5 lg:px-20">
 
             <div class="navbar-start">
                 <div class="dropdown">
@@ -22,7 +22,8 @@ const Navbar = () => {
 
                     </ul>
                 </div>
-                <a class="btn btn-ghost normal-case text-xl">Tasks Manager</a>
+
+                <Link className="btn btn-ghost normal-case text-xl" to="/" ><span className='text-primary'>Tasks</span> <span> Manager</span></Link>
             </div>
             <div class="navbar-center hidden lg:flex">
                 <ul class="menu menu-horizontal p-0 uppercase">
