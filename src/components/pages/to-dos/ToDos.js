@@ -5,11 +5,14 @@ const ToDos = () => {
 
     const [tasks, setTasks] = useState([]);
 
+
     useEffect(() => {
         fetch("http://localhost:5000/alltasks")
             .then(res => res.json())
-            .then(data => setTasks(data))
-    }, [])
+            .then(data => {
+                setTasks(data.filter(d => d.status !== 'completed'))
+            })
+    }, [tasks])
 
     return (
         <div className='p-5 lg:p-20 '>
@@ -18,7 +21,8 @@ const ToDos = () => {
                 <ul>
                     {<Task
                         key="defaultTask"
-                        task={{ _id: JSON.stringify(Math.floor(Math.floor(Math.random() * Date.now()))), text: "type here" }}
+                        defaultTask
+                        task={{ _id: JSON.stringify(Math.floor(Math.random() * Math.floor(Math.random() * Date.now()))), text: "type here" }}
                     />
                     }
                     {tasks.map((task) => <Task

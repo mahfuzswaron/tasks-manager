@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const Task = ({ task }) => {
+const Task = ({ task, defaultTask }) => {
     const { text } = task;
     const [taskText, setTaskText] = useState(text);
     const submit = () => {
@@ -14,6 +14,7 @@ const Task = ({ task }) => {
         })
             .then(res => res.json())
             .then(data => console.log(data));
+        setTaskText("")
     }
     const handleChange = (e) => {
         const editedText = e.target.value;
@@ -36,7 +37,7 @@ const Task = ({ task }) => {
     }
     return (
         <li className='flex space-x-4 lg:space-x-8 items-center my-3'>
-            <input type="radio" name="task" class="radio radio-primary" onClick={handleComplete} />
+            <input type="radio" name="task" className={defaultTask ? 'opacity-0 mr-3' : "radio radio-primary"} onClick={handleComplete} />
             <input type="text" onChange={handleChange} onKeyUp={handleChange} onBlur={submit} value={taskText} class="input  w-full " />
         </li>
     );
