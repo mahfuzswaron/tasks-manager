@@ -24,7 +24,7 @@ const Task = ({ task }) => {
         }
     }
     return (
-        <li className='flex space-x-4 lg:space-x-8 items-center'>
+        <li className='flex space-x-4 lg:space-x-8 items-center my-3'>
             <input type="radio" name="task" class="radio radio-primary" />
             <input type="text" onChange={handleChange} onKeyUp={handleChange} onBlur={submit} value={taskText} class="input  w-full " />
         </li>

@@ -16,6 +16,11 @@ const ToDos = () => {
             <h3 className='text-center text-3xl text-primary font-bold'>Today's Tasks</h3>
             <div className='my-10 w-full lg:w-2/3 mx-auto'>
                 <ul>
+                    {<Task
+                        key="defaultTask"
+                        task={{ _id: JSON.stringify(Math.floor(Math.floor(Math.random() * Date.now()))), text: "type here" }}
+                    />
+                    }
                     {tasks.map((task) => <Task
                         key={task._id}
                         task={task}
