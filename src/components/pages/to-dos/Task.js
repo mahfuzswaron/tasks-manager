@@ -4,7 +4,16 @@ const Task = ({ task }) => {
     const { text } = task;
     const [taskText, setTaskText] = useState(text);
     const submit = () => {
-        console.log(taskText)
+        fetch("http://localhost:5000/addoredit", {
+            method: "PUT",
+            headers: {
+                'content-type': 'application/json',
+                id: task._id
+            },
+            body: JSON.stringify({ text: taskText })
+        })
+            .then(res => res.json())
+            .then(data => console.log(data));
     }
     const handleChange = (e) => {
         const editedText = e.target.value;

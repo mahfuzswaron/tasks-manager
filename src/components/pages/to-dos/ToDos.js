@@ -1,11 +1,15 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Task from './Task';
 
 const ToDos = () => {
 
-    const [tasks, setTasks] = useState([
-        { id: "task1", text: "Finish EndGame Task" }
-    ]);
+    const [tasks, setTasks] = useState([]);
+
+    useEffect(() => {
+        fetch("http://localhost:5000/alltasks")
+            .then(res => res.json())
+            .then(data => setTasks(data))
+    }, [])
 
     return (
         <div className='p-5 lg:p-20 '>
@@ -13,7 +17,7 @@ const ToDos = () => {
             <div className='my-10 w-full lg:w-2/3 mx-auto'>
                 <ul>
                     {tasks.map((task) => <Task
-                        key={task.id}
+                        key={task._id}
                         task={task}
                     />)
 
