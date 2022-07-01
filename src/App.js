@@ -1,5 +1,5 @@
 import { Routes, Route } from 'react-router-dom';
-import Calendar from './components/pages/Calendar/Calendar';
+import CalendarCompo from './components/pages/Calendar/CalendarCompo';
 import CompletedTasks from './components/pages/completed-tasks/CompletedTasks';
 import ToDos from './components/pages/to-dos/ToDos';
 import Footer from './components/shared/Footer';
@@ -13,7 +13,7 @@ function App() {
         <Route path='/' element={<ToDos />} />
         <Route path='/todos' element={<ToDos />} />
         <Route path='/completedTasks' element={<CompletedTasks />} />
-        <Route path='/calendar' element={<Calendar />} />
+        <Route path='/calendar' element={<CalendarCompo />} />
         <Route path='*' element={<NotFound />} />
       </Routes>
       <Footer />
