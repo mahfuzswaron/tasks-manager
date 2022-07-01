@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 const CompletedTasks = () => {
     const [completedTasks, setCompletedTasks] = useState([]);
     useEffect(() => {
-        fetch("http://localhost:5000/alltasks")
+        fetch("https://tasks-manager-2.herokuapp.com/alltasks")
             .then(res => res.json())
             .then(data => {
                 setCompletedTasks(data.filter(d => d.status === 'completed'))

@@ -4,7 +4,7 @@ const Task = ({ task, defaultTask }) => {
     const { text } = task;
     const [taskText, setTaskText] = useState(text);
     const submit = () => {
-        fetch("http://localhost:5000/addoredit", {
+        fetch("https://tasks-manager-2.herokuapp.com/addoredit", {
             method: "PUT",
             headers: {
                 'content-type': 'application/json',
@@ -14,7 +14,7 @@ const Task = ({ task, defaultTask }) => {
         })
             .then(res => res.json())
             .then(data => console.log(data));
-        setTaskText("")
+        defaultTask && setTaskText("")
     }
     const handleChange = (e) => {
         const editedText = e.target.value;
@@ -25,7 +25,7 @@ const Task = ({ task, defaultTask }) => {
         }
     }
     const handleComplete = () => {
-        fetch(`http://localhost:5000/complete`, {
+        fetch(`https://tasks-manager-2.herokuapp.com/complete`, {
             method: "PUT",
             headers: {
                 'content-type': 'application/json',

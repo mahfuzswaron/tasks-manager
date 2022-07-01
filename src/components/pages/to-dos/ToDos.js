@@ -7,7 +7,7 @@ const ToDos = () => {
 
 
     useEffect(() => {
-        fetch("http://localhost:5000/alltasks")
+        fetch("https://tasks-manager-2.herokuapp.com/alltasks")
             .then(res => res.json())
             .then(data => {
                 setTasks(data.filter(d => d.status !== 'completed'))
