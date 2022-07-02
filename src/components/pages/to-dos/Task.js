@@ -39,7 +39,9 @@ const Task = ({ task, defaultTask }) => {
     return (
         <li className='flex space-x-4 lg:space-x-8 items-center my-3'>
             <input type="radio" name="task" className={defaultTask ? 'opacity-0 mr-3' : "radio radio-primary"} onClick={handleComplete} />
-            <input type="text" onChange={handleChange} onKeyUp={handleChange} value={taskText} class="input  w-full " />
+            <div class="tooltip w-full" data-tip="click to edit and press 'Enter' to submit">
+                <input type="text" onChange={handleChange} onKeyUp={handleChange} value={taskText} class="input  w-full " />
+            </div>
         </li>
     );
 };
