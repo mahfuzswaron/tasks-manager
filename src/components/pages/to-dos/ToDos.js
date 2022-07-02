@@ -22,7 +22,7 @@ const ToDos = () => {
                     {<Task
                         key="defaultTask"
                         defaultTask
-                        task={{ _id: JSON.stringify(Math.floor(Math.random() * Math.floor(Math.random() * Date.now()))), text: "type here" }}
+                        task={{ _id: JSON.stringify(Math.floor(Math.random() * Math.floor(Math.random() * Date.now()))), text: "task text here" }}
                     />
                     }
                     {tasks.map((task) => <Task

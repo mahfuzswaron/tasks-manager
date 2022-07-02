@@ -4,6 +4,7 @@ const Task = ({ task, defaultTask }) => {
     const { text } = task;
     const [taskText, setTaskText] = useState(text);
     const submit = () => {
+        if (taskText === "") return alert('this field cannot be empty')
         fetch("https://tasks-manager-2.herokuapp.com/addoredit", {
             method: "PUT",
             headers: {
@@ -38,7 +39,7 @@ const Task = ({ task, defaultTask }) => {
     return (
         <li className='flex space-x-4 lg:space-x-8 items-center my-3'>
             <input type="radio" name="task" className={defaultTask ? 'opacity-0 mr-3' : "radio radio-primary"} onClick={handleComplete} />
-            <input type="text" onChange={handleChange} onKeyUp={handleChange} onBlur={submit} value={taskText} class="input  w-full " />
+            <input type="text" onChange={handleChange} onKeyUp={handleChange} value={taskText} class="input  w-full " />
         </li>
     );
 };
