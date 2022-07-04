@@ -14,8 +14,8 @@ const Task = ({ task, defaultTask }) => {
             body: JSON.stringify({ text: taskText })
         })
             .then(res => res.json())
-            .then(data => console.log(data));
-        defaultTask && setTaskText("")
+            .then(data => defaultTask && setTaskText(""));
+
     }
     const handleChange = (e) => {
         const editedText = e.target.value;

@@ -1,18 +1,30 @@
 import React, { useEffect, useState } from 'react';
+import NoData from '../../shared/NoData';
+import Spinner from '../../shared/Spinner';
 import Task from './Task';
 
 const ToDos = () => {
 
     const [tasks, setTasks] = useState([]);
+    const [show, setShow] = useState(false)
 
 
     useEffect(() => {
         fetch("https://tasks-manager-2.herokuapp.com/alltasks")
             .then(res => res.json())
             .then(data => {
-                setTasks(data.filter(d => d.status !== 'completed'))
+                const filteredTasks = data.filter(d => d.status !== 'completed');
+                if (!filteredTasks || !filteredTasks.length) {
+                    setShow(true)
+                }
+                else {
+                    setShow(false)
+                }
+                setTasks(filteredTasks)
             })
-    }, [tasks])
+    }, [tasks]);
+
+    // if (!tasks || !tasks.length) return setShow(true)
 
     return (
         <div className='p-5 lg:p-20 '>
@@ -32,6 +44,7 @@ const ToDos = () => {
 
                     }
                 </ul>
+                <NoData show={show} />
             </div>
         </div>
     );
