@@ -24,7 +24,7 @@ const ToDos = () => {
             })
     }, [tasks]);
 
-    // if (!tasks || !tasks.length) return setShow(true)
+    // if (!tasks?.length) return <Spinner />
 
     return (
         <div className='p-5 lg:p-20 '>
