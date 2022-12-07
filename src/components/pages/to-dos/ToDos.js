@@ -10,7 +10,7 @@ const ToDos = () => {
 
 
     useEffect(() => {
-        fetch("https://tasks-manager-2.herokuapp.com/alltasks")
+        fetch("https://tasks-manager-server.onrender.com/alltasks")
             .then(res => res.json())
             .then(data => {
                 const filteredTasks = data.filter(d => d.status !== 'completed');

@@ -5,7 +5,7 @@ const Task = ({ task, defaultTask }) => {
     const [taskText, setTaskText] = useState(text);
     const submit = () => {
         if (taskText === "") return alert('this field cannot be empty')
-        fetch("https://tasks-manager-2.herokuapp.com/addoredit", {
+        fetch("https://tasks-manager-server.onrender.com/addoredit", {
             method: "PUT",
             headers: {
                 'content-type': 'application/json',
@@ -26,7 +26,7 @@ const Task = ({ task, defaultTask }) => {
         }
     }
     const handleComplete = () => {
-        fetch(`https://tasks-manager-2.herokuapp.com/complete`, {
+        fetch(`https://tasks-manager-server.onrender.com/complete`, {
             method: "PUT",
             headers: {
                 'content-type': 'application/json',
